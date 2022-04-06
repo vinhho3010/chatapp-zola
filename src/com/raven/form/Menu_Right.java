@@ -66,7 +66,7 @@ public class Menu_Right extends javax.swing.JPanel {
         btn_logout.setBackground(new java.awt.Color(158, 72, 192));
         btn_logout.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btn_logout.setForeground(new java.awt.Color(255, 255, 255));
-        btn_logout.setText("Logout");
+        btn_logout.setText("Log out");
         btn_logout.setBorderPainted(false);
         btn_logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_logout.addActionListener(new java.awt.event.ActionListener() {
