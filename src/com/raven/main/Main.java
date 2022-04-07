@@ -58,6 +58,13 @@ public class Main extends javax.swing.JFrame {
             public void updateUser(Model_User_Account user) {
                 home.updateUser(user);
             }
+            
+            @Override
+            public void setUser() {
+                Model_User_Account user = new Model_User_Account();
+                user.setModel_User_Account();
+                home.setUser(user);
+            }
 
         });
         PublicEvent.getInstance().addEventImageView(new EventImageView() {
@@ -246,6 +253,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
+    
+ 
+    public void logout(){
+
+        login.setVisible(true);
+        loading.setVisible(false);
+        vIew_Image.setVisible(false);
+        home.setVisible(false);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;

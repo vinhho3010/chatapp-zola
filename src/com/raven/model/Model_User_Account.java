@@ -5,6 +5,17 @@ import org.json.JSONObject;
 
 public class Model_User_Account {
 
+    public Model_User_Account() {
+        
+    }
+    
+    public void setModel_User_Account(){
+        setStatus(false);
+        setGender("");
+        setUserID(1);
+        setImage("");
+    }
+
     public int getUserID() {
         return userID;
     }
@@ -71,4 +82,6 @@ public class Model_User_Account {
     private String gender;
     private String image;
     private boolean status;
+
+
 }

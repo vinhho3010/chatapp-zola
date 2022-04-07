@@ -1,8 +1,10 @@
 package com.raven.form;
 
+import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.raven.event.EventLogin;
 import com.raven.event.EventMessage;
 import com.raven.event.PublicEvent;
+import com.raven.main.Main;
 import com.raven.model.Model_Login;
 import com.raven.model.Model_Message;
 import com.raven.model.Model_Register;
@@ -75,6 +77,18 @@ public class Login extends javax.swing.JPanel {
             @Override
             public void goLogin() {
                 slide.show(0);
+            }
+            
+            @Override
+            public void goLogOut() {
+                FlatArcIJTheme.setup();
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Main().setVisible(true);
+                    }
+                });
+                PublicEvent.getInstance().getEventMain().setUser();
             }
         });
         P_Login login = new P_Login();

@@ -5,6 +5,10 @@
  */
 package com.raven.form;
 
+import com.raven.event.PublicEvent;
+import com.raven.main.Main;
+import com.raven.model.Model_User_Account;
+import com.raven.service.Service;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -33,7 +37,7 @@ public class Menu_Right extends javax.swing.JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         GradientPaint gdp = new GradientPaint(0,0,Color.decode("#80E2FF"),0,getHeight(),Color.decode("#9E74D0"));
         g2d.setPaint(gdp);
-        g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 200, 200);
+        g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 0, 0);
         g2d.fillRect(0, getWidth()-20, getWidth(), getHeight());
         setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         super.paintChildren(grphcs);
@@ -80,19 +84,23 @@ public class Menu_Right extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(21, 21, 21)
+                .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(txt_current_user, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
                 .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -100,6 +108,17 @@ public class Menu_Right extends javax.swing.JPanel {
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
        
+       int isLogout = JOptionPane.showConfirmDialog(this, "Do you want to log out?", "Log out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+       
+       
+       if(isLogout == JOptionPane.YES_OPTION){
+            Service.getInstance().getClient().disconnect();
+            PublicEvent.getInstance().getEventLogin().goLogOut();
+       } else {
+           return;
+       }
+       
+           
     }//GEN-LAST:event_btn_logoutActionPerformed
 
 
