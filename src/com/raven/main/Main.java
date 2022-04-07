@@ -254,14 +254,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
     
- 
-    public void logout(){
 
-        login.setVisible(true);
-        loading.setVisible(false);
-        vIew_Image.setVisible(false);
-        home.setVisible(false);
-    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
