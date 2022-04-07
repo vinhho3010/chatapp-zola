@@ -15,8 +15,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.plaf.FileChooserUI;
 
 
 /**
@@ -53,19 +57,25 @@ public class Menu_Right extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_current_user = new javax.swing.JLabel();
+        txt_user_gender = new javax.swing.JLabel();
         imageAvatar1 = new com.raven.swing.ImageAvatar();
         btn_logout = new javax.swing.JButton();
+        txt_current_user = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        txt_current_user.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        txt_current_user.setForeground(new java.awt.Color(255, 255, 255));
-        txt_current_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_user_gender.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txt_user_gender.setForeground(new java.awt.Color(255, 255, 255));
+        txt_user_gender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         imageAvatar1.setBorderColor(new java.awt.Color(126, 226, 255));
         imageAvatar1.setBorderSize(2);
         imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/profileTest.jpg"))); // NOI18N
+        imageAvatar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageAvatar1MouseClicked(evt);
+            }
+        });
 
         btn_logout.setBackground(new java.awt.Color(158, 72, 192));
         btn_logout.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
@@ -79,28 +89,36 @@ public class Menu_Right extends javax.swing.JPanel {
             }
         });
 
+        txt_current_user.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        txt_current_user.setForeground(new java.awt.Color(255, 255, 255));
+        txt_current_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_user_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(37, 37, 37)
                 .addComponent(txt_current_user, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(txt_user_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -109,7 +127,6 @@ public class Menu_Right extends javax.swing.JPanel {
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
        
        int isLogout = JOptionPane.showConfirmDialog(this, "Do you want to log out?", "Log out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-       
        
        if(isLogout == JOptionPane.YES_OPTION){
             Service.getInstance().getClient().disconnect();
@@ -121,10 +138,25 @@ public class Menu_Right extends javax.swing.JPanel {
            
     }//GEN-LAST:event_btn_logoutActionPerformed
 
+    private void imageAvatar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageAvatar1MouseClicked
+        JFileChooser src = new JFileChooser();
+                    //Chi chon dinh dang file .txt
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.png,jpg,jpeg", "png", "jpg", "jpeg");
+        src.setFileFilter(filter);
+        int val = src.showOpenDialog(this);
+                    if (val == JFileChooser.APPROVE_OPTION){
+                        String path = src.getSelectedFile().toString();
+                        ImageIcon image = new ImageIcon(path);
+                        imageAvatar1.setImage(image);
+                    }
+                    else return;
+    }//GEN-LAST:event_imageAvatar1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_logout;
     private com.raven.swing.ImageAvatar imageAvatar1;
     public static javax.swing.JLabel txt_current_user;
+    public static javax.swing.JLabel txt_user_gender;
     // End of variables declaration//GEN-END:variables
 }

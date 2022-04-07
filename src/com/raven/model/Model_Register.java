@@ -26,17 +26,33 @@ public class Model_Register {
         this.password = password;
     }
 
+    public Model_Register(String userName, String password, String gender) {
+        this.userName = userName;
+        this.password = password;
+        this.gender = gender;
+    }
+
     public Model_Register() {
     }
 
     private String userName;
     private String password;
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public JSONObject toJsonObject() {
         try {
             JSONObject json = new JSONObject();
             json.put("userName", userName);
             json.put("password", password);
+            json.put("gender", gender);
             return json;
         } catch (JSONException e) {
             return null;

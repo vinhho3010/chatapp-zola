@@ -81,10 +81,6 @@ public class Service {
             error(e);
         }
     }
-    
-    public void endServer(){
-        this.getClient().close();
-    }
 
     public Model_File_Sender addFile(File file, Model_Send_Message message) throws IOException {
         Model_File_Sender data = new Model_File_Sender(file, client, message);

@@ -4,6 +4,7 @@ import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.raven.event.EventImageView;
 import com.raven.event.EventMain;
 import com.raven.event.PublicEvent;
+import com.raven.form.Menu_Right;
 import com.raven.model.Model_User_Account;
 import com.raven.service.Service;
 import com.raven.swing.ComponentResizer;
@@ -47,6 +48,10 @@ public class Main extends javax.swing.JFrame {
                 home.setVisible(true);
                 login.setVisible(false);
                 Service.getInstance().getClient().emit("list_user", Service.getInstance().getUser().getUserID());
+                //init info pane
+                 Menu_Right.txt_current_user.setText(Service.getInstance().getUser().getUserName());
+                 Menu_Right.txt_user_gender.setText("Gender: " + Service.getInstance().getUser().getGender());
+                 
             }
 
             @Override
