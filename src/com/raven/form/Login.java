@@ -127,7 +127,7 @@ public class Login extends javax.swing.JPanel {
         slide.setBackground(new java.awt.Color(255, 255, 255));
         slide.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         slide.setForeground(new java.awt.Color(153, 0, 153));
-        slide.setAnimate(5);
+        slide.setAnimate(6);
 
         javax.swing.GroupLayout slideLayout = new javax.swing.GroupLayout(slide);
         slide.setLayout(slideLayout);
