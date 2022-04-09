@@ -10,15 +10,20 @@ import com.raven.main.Main;
 import com.raven.model.Model_User_Account;
 import com.raven.service.Service;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.TextArea;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.FileChooserUI;
 
@@ -59,9 +64,11 @@ public class Menu_Right extends javax.swing.JPanel {
 
         txt_user_gender = new javax.swing.JLabel();
         imageAvatar1 = new com.raven.swing.ImageAvatar();
-        jLabel1 = new javax.swing.JLabel();
+        btn_change_avatar = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
+        btn_change_des = new javax.swing.JLabel();
         txt_current_user = new javax.swing.JLabel();
+        txt_description = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -79,14 +86,14 @@ public class Menu_Right extends javax.swing.JPanel {
         });
         imageAvatar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/camera.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_change_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/camera.png"))); // NOI18N
+        btn_change_avatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_change_avatar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                btn_change_avatarMousePressed(evt);
             }
         });
-        imageAvatar1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 30));
+        imageAvatar1.add(btn_change_avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 30));
 
         btn_logout.setBackground(new java.awt.Color(158, 72, 192));
         btn_logout.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
@@ -100,27 +107,47 @@ public class Menu_Right extends javax.swing.JPanel {
             }
         });
 
+        btn_change_des.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/double_tick.png"))); // NOI18N
+        btn_change_des.setLabelFor(txt_description);
+        btn_change_des.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_change_des.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_change_desMousePressed(evt);
+            }
+        });
+
         txt_current_user.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
         txt_current_user.setForeground(new java.awt.Color(255, 255, 255));
         txt_current_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        txt_description.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txt_description.setForeground(new java.awt.Color(255, 255, 255));
+        txt_description.setText("\"Description here\"");
+        txt_description.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_user_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 44, Short.MAX_VALUE))
-                    .addComponent(txt_user_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_change_des)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(32, 32, 32)
+                                    .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(txt_description, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -128,11 +155,15 @@ public class Menu_Right extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_current_user, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_user_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_user_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_description, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_change_des)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
                 .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -140,11 +171,13 @@ public class Menu_Right extends javax.swing.JPanel {
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
        
-       int isLogout = JOptionPane.showConfirmDialog(this, "Do you want to log out?", "Log out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+       int isLogout;
+        isLogout = JOptionPane.showConfirmDialog(null, "Do you want to log out?", "Log out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
        
        if(isLogout == JOptionPane.YES_OPTION){
             Service.getInstance().getClient().disconnect();
             PublicEvent.getInstance().getEventLogin().goLogOut();
+            
        } else {
            return;
        }
@@ -156,26 +189,67 @@ public class Menu_Right extends javax.swing.JPanel {
        
     }//GEN-LAST:event_imageAvatar1MouseClicked
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+    private void btn_change_avatarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_change_avatarMousePressed
          JFileChooser src = new JFileChooser();
                     //Chi chon dinh dang file .txt
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.png,jpg,jpeg", "png", "jpg", "jpeg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image File", "png", "jpg", "jpeg");
         src.setFileFilter(filter);
-        int val = src.showOpenDialog(this);
+        int val = src.showOpenDialog(null);
                     if (val == JFileChooser.APPROVE_OPTION){
                         String path = src.getSelectedFile().toString();
                         ImageIcon image = new ImageIcon(path);
                         imageAvatar1.setImage(image);
                     }
                     else return;
-    }//GEN-LAST:event_jLabel1MousePressed
+    }//GEN-LAST:event_btn_change_avatarMousePressed
+
+    private void btn_change_desMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_change_desMousePressed
+        JTextArea txa_Description = new javax.swing.JTextArea();
+        txa_Description.setColumns(20);
+        txa_Description.setRows(4);
+        txa_Description.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                 int max = 38;
+                    if(txa_Description.getText().length() > max+1) {
+                         evt.consume();
+                         String shortened = txa_Description.getText().substring(0, max);
+                         txa_Description.setText(shortened);
+                    }else if(txa_Description.getText().length() > max) {
+                         evt.consume();
+                   }
+                 }
+         });
+        
+        int des_change = JOptionPane.showConfirmDialog(null, txa_Description, "Description", JOptionPane.YES_NO_OPTION);
+        
+        if(des_change==JOptionPane.YES_OPTION){
+            if(txa_Description.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Please input description!!", "Information",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else{
+                  txt_description.setText("\"" + txa_Description.getText() + "\"");
+            }
+        } else return;
+
+//        String des_text = JOptionPane.showInputDialog(null, "Type your description","Description",
+//                JOptionPane.QUESTION_MESSAGE);
+//        
+//        if(des_text!=null){
+//            txt_description.setText(des_text);
+//        } else return;
+        
+        
+    
+    }//GEN-LAST:event_btn_change_desMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btn_change_avatar;
+    private javax.swing.JLabel btn_change_des;
     private javax.swing.JButton btn_logout;
     private com.raven.swing.ImageAvatar imageAvatar1;
-    private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel txt_current_user;
+    private javax.swing.JLabel txt_description;
     public static javax.swing.JLabel txt_user_gender;
     // End of variables declaration//GEN-END:variables
 }

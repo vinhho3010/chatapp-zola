@@ -85,7 +85,7 @@ public class Chat_Title extends javax.swing.JPanel {
 
         imageAvatar1.setBorderColor(new java.awt.Color(0, 51, 51));
         imageAvatar1.setBorderSize(2);
-        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/image.png"))); // NOI18N
+        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/user.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,7 +98,7 @@ public class Chat_Title extends javax.swing.JPanel {
                     .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbStatus))
                 .addContainerGap(320, Short.MAX_VALUE))
         );
