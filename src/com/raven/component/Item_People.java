@@ -19,7 +19,8 @@ public class Item_People extends javax.swing.JPanel {
         initComponents();
         lb.setText(user.getUserName());
         activeStatus.setActive(user.isStatus());
-        //imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource(user.getAvatarPath())));
+        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource(user.getAvatarPath())));
+        
         init();
     }
 
@@ -105,7 +106,6 @@ public class Item_People extends javax.swing.JPanel {
                 .addGap(3, 3, 3))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.ActiveStatus activeStatus;

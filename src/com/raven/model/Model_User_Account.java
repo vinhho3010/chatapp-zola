@@ -14,7 +14,7 @@ public class Model_User_Account {
         setGender("");
         setUserID(1);
         setImage("");
-        //setAvatarPath("");
+        setAvatarPath("");
     }
 
     public int getUserID() {
@@ -65,21 +65,21 @@ public class Model_User_Account {
 //        this.Description = Description;
 //    }
 //
-//    public String getAvatarPath() {
-//        return AvatarPath;
-//    }
-//
-//    public void setAvatarPath(String AvatarPath) {
-//        this.AvatarPath = AvatarPath;
-//    }
+    public String getAvatarPath() {
+        return AvatarPath;
+    }
 
-    public Model_User_Account(int userID, String userName, String gender, String image, boolean status) {
+    public void setAvatarPath(String AvatarPath) {
+        this.AvatarPath = AvatarPath;
+    }
+
+    public Model_User_Account(int userID, String userName, String gender, String image, boolean status, String AvatarPath) {
         this.userID = userID;
         this.userName = userName;
         this.gender = gender;
         this.image = image;
         this.status = status;
-        //this.AvatarPath = AvatarPath;
+        this.AvatarPath = AvatarPath;
     }
 
     public Model_User_Account(Object json) {
@@ -90,7 +90,7 @@ public class Model_User_Account {
             gender = obj.getString("gender");
             image = obj.getString("image");
             status = obj.getBoolean("status");
-            //AvatarPath = obj.getString("AvatarPath");
+            AvatarPath = obj.getString("avatarPath");
         } catch (JSONException e) {
             System.err.println(e);
         }
@@ -103,7 +103,7 @@ public class Model_User_Account {
     private String gender;
     private String image;
     private boolean status;
-   // private String AvatarPath;
+    private String AvatarPath;
 
 
 }

@@ -35,6 +35,7 @@ public class Chat_Title extends javax.swing.JPanel {
     public void setUserName(Model_User_Account user) {
         this.user = user;
         lbName.setText(user.getUserName());
+        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource(user.getAvatarPath())));
         if (user.isStatus()) {
             statusActive();
         } else {
@@ -45,6 +46,7 @@ public class Chat_Title extends javax.swing.JPanel {
     public void updateUser(Model_User_Account user) {
         if (this.user == user) {
             lbName.setText(user.getUserName());
+            imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource(user.getAvatarPath())));
             if (user.isStatus()) {
                 statusActive();
             } else {
