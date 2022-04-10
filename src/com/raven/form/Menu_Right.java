@@ -40,6 +40,12 @@ public class Menu_Right extends javax.swing.JPanel {
     public Menu_Right() {
         initComponents();
     }
+//    
+//    public void init(){
+//        if(Service.getInstance().getUser().getDescription()==null){
+//            txt_description.setText("\"Description Here\"");
+//        } else txt_description.setText("\"" + Service.getInstance().getUser().getDescription() + "\"");
+//    }
 
     protected void paintChildren(Graphics grphcs){
         Graphics2D g2d = (Graphics2D)grphcs;
@@ -62,19 +68,15 @@ public class Menu_Right extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_user_gender = new javax.swing.JLabel();
         imageAvatar1 = new com.raven.swing.ImageAvatar();
         btn_change_avatar = new javax.swing.JLabel();
+        txt_user_gender = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
         btn_change_des = new javax.swing.JLabel();
-        txt_current_user = new javax.swing.JLabel();
         txt_description = new javax.swing.JLabel();
+        txt_current_user = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_user_gender.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txt_user_gender.setForeground(new java.awt.Color(255, 255, 255));
-        txt_user_gender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         imageAvatar1.setBorderColor(new java.awt.Color(126, 226, 255));
         imageAvatar1.setBorderSize(2);
@@ -95,6 +97,10 @@ public class Menu_Right extends javax.swing.JPanel {
         });
         imageAvatar1.add(btn_change_avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 30));
 
+        txt_user_gender.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txt_user_gender.setForeground(new java.awt.Color(255, 255, 255));
+        txt_user_gender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         btn_logout.setBackground(new java.awt.Color(158, 72, 192));
         btn_logout.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btn_logout.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +113,7 @@ public class Menu_Right extends javax.swing.JPanel {
             }
         });
 
-        btn_change_des.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/double_tick.png"))); // NOI18N
+        btn_change_des.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/edit-des.png"))); // NOI18N
         btn_change_des.setLabelFor(txt_description);
         btn_change_des.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_change_des.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,38 +122,37 @@ public class Menu_Right extends javax.swing.JPanel {
             }
         });
 
+        txt_description.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txt_description.setForeground(new java.awt.Color(255, 255, 255));
+        txt_description.setText("\"Description Here\"");
+        txt_description.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         txt_current_user.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
         txt_current_user.setForeground(new java.awt.Color(255, 255, 255));
         txt_current_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        txt_description.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        txt_description.setForeground(new java.awt.Color(255, 255, 255));
-        txt_description.setText("\"Description here\"");
-        txt_description.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_user_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txt_description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_current_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_change_des)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(txt_description, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 21, Short.MAX_VALUE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 30, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_change_des)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -163,10 +168,12 @@ public class Menu_Right extends javax.swing.JPanel {
                 .addComponent(txt_description, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_change_des)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        txt_description.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
@@ -176,8 +183,7 @@ public class Menu_Right extends javax.swing.JPanel {
        
        if(isLogout == JOptionPane.YES_OPTION){
             Service.getInstance().getClient().disconnect();
-            PublicEvent.getInstance().getEventLogin().goLogOut();
-            
+            PublicEvent.getInstance().getEventLogin().goLogOut();      
        } else {
            return;
        }
@@ -191,7 +197,7 @@ public class Menu_Right extends javax.swing.JPanel {
 
     private void btn_change_avatarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_change_avatarMousePressed
          JFileChooser src = new JFileChooser();
-                    //Chi chon dinh dang file .txt
+                    //filter image file
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image File", "png", "jpg", "jpeg");
         src.setFileFilter(filter);
         int val = src.showOpenDialog(null);
@@ -228,17 +234,9 @@ public class Menu_Right extends javax.swing.JPanel {
                         JOptionPane.INFORMATION_MESSAGE);
             } else{
                   txt_description.setText("\"" + txa_Description.getText() + "\"");
+                 
             }
         } else return;
-
-//        String des_text = JOptionPane.showInputDialog(null, "Type your description","Description",
-//                JOptionPane.QUESTION_MESSAGE);
-//        
-//        if(des_text!=null){
-//            txt_description.setText(des_text);
-//        } else return;
-        
-        
     
     }//GEN-LAST:event_btn_change_desMousePressed
 
@@ -247,9 +245,9 @@ public class Menu_Right extends javax.swing.JPanel {
     private javax.swing.JLabel btn_change_avatar;
     private javax.swing.JLabel btn_change_des;
     private javax.swing.JButton btn_logout;
-    private com.raven.swing.ImageAvatar imageAvatar1;
+    public static com.raven.swing.ImageAvatar imageAvatar1;
     public static javax.swing.JLabel txt_current_user;
-    private javax.swing.JLabel txt_description;
+    public static javax.swing.JLabel txt_description;
     public static javax.swing.JLabel txt_user_gender;
     // End of variables declaration//GEN-END:variables
 }
