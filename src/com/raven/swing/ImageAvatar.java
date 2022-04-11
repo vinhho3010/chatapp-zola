@@ -48,8 +48,8 @@ public class ImageAvatar extends JComponent {
     @Override
     public void paint(Graphics g) {
         if (image != null) {
-            int width = image.getIconWidth();
-            int height = image.getIconHeight();
+            int width = image.getIconWidth() + 2;
+            int height = image.getIconHeight() + 2;
             int diameter = Math.min(width, height);
             BufferedImage mask = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = mask.createGraphics();
