@@ -4,6 +4,7 @@ import com.raven.event.EventMessage;
 import com.raven.event.PublicEvent;
 import com.raven.model.Model_Message;
 import com.raven.model.Model_Register;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -144,7 +145,7 @@ private String Avatar = "";
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbTitle)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,8 +166,8 @@ private String Avatar = "";
                     .addComponent(jLabel7)
                     .addComponent(btn_chooseAvatar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmdRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmdBackLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,7 +185,7 @@ private String Avatar = "";
         String confirmPassword = String.valueOf(txtRePassword.getPassword());
         String gender = cbx_gender.getSelectedItem().toString();
         //String Description = "\"Description Here\"";
-//        String imageString = Avatar;
+        String AvatarPath = Avatar;
 
         if (userName.equals("")) {
             txtUser.grabFocus();
@@ -193,7 +194,7 @@ private String Avatar = "";
         } else if (!password.equals(confirmPassword)) {
             txtPass.grabFocus();
         } else {
-            Model_Register data = new Model_Register(userName, password, gender);
+            Model_Register data = new Model_Register(userName, password, gender, AvatarPath);
             PublicEvent.getInstance().getEventLogin().register(data, new EventMessage() {
                 @Override
                 public void callMessage(Model_Message message) {
@@ -213,11 +214,15 @@ private String Avatar = "";
 
     private void btn_chooseAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chooseAvatarActionPerformed
         JFileChooser src = new JFileChooser();
+        File workingDirectory = new File(System.getProperty("user.dir"));
+        src.setCurrentDirectory(workingDirectory);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image File", "png", "jpg", "jpeg");
         src.setFileFilter(filter);
         int val = src.showOpenDialog(null);
                     if (val == JFileChooser.APPROVE_OPTION){
-                        Avatar = src.getSelectedFile().toString(); 
+                         File selectedFile = src.getSelectedFile();
+                         //only add pic in folder
+                        Avatar = "/com/raven/avatar/" + selectedFile.getName();
                         JOptionPane.showMessageDialog(null, "Successfully chosen image at \n" + Avatar,"Message", JOptionPane.INFORMATION_MESSAGE);
                     }
                     else return;

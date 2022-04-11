@@ -37,8 +37,14 @@ public class Menu_Right extends javax.swing.JPanel {
     /**
      * Creates new form Menu_Left
      */
+//    private final Model_User_Account user;
+//    public Model_User_Account getUser() {
+//        return user;
+//    }
     public Menu_Right() {
         initComponents();
+//        this.user=user;
+//        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource(user.getAvatarPath())));
     }
 //    
 //    public void init(){
@@ -211,6 +217,7 @@ public class Menu_Right extends javax.swing.JPanel {
                         String path = src.getSelectedFile().toString();
                         ImageIcon image = new ImageIcon(path);
                         imageAvatar1.setImage(image);
+                        //Service.getInstance().getUser().setAvatarPath(path);
                     }
                     else return;
     }//GEN-LAST:event_btn_change_avatarMousePressed
