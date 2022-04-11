@@ -51,6 +51,8 @@ public class Main extends javax.swing.JFrame {
                 //init info pane
                  Menu_Right.txt_current_user.setText(Service.getInstance().getUser().getUserName());
                  Menu_Right.txt_user_gender.setText("Gender: " + Service.getInstance().getUser().getGender());
+                 Menu_Right.imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().
+                         getResource(Service.getInstance().getUser().getAvatarPath())));
 
             }
 
