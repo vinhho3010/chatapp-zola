@@ -14,5 +14,6 @@ public interface EventMain {
 
     public void setUser();
     
+    public void logout();
 
 }

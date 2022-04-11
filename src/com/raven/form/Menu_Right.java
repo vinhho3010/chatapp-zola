@@ -194,8 +194,8 @@ public class Menu_Right extends javax.swing.JPanel {
         isLogout = JOptionPane.showConfirmDialog(null, "Do you want to log out?", "Log out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
        
        if(isLogout == JOptionPane.YES_OPTION){
-            Service.getInstance().getClient().disconnect();
-            PublicEvent.getInstance().getEventLogin().goLogOut();      
+            PublicEvent.getInstance().getEventMain().logout();  
+            
        } else {
            return;
        }

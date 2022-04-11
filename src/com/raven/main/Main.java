@@ -4,6 +4,7 @@ import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.raven.event.EventImageView;
 import com.raven.event.EventMain;
 import com.raven.event.PublicEvent;
+import com.raven.form.Login;
 import com.raven.form.Menu_Right;
 import com.raven.model.Model_User_Account;
 import com.raven.service.Service;
@@ -71,6 +72,14 @@ public class Main extends javax.swing.JFrame {
                 Model_User_Account user = new Model_User_Account();
                 user.setModel_User_Account();
                 home.setUser(user);
+            }
+            
+            @Override
+            public void logout() {
+                Service.getInstance().getClient().disconnect();
+                _this.setVisible(false);
+                
+                new Main().setVisible(true);
             }
 
         });
@@ -261,7 +270,7 @@ public class Main extends javax.swing.JFrame {
     }
     
 
-    
+    private JFrame _this = this;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
