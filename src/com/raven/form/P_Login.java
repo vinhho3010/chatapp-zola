@@ -31,8 +31,20 @@ public class P_Login extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         jLabel1.setText("User Name");
 
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         jLabel2.setText("Password");
+
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
 
         cmdLogin.setBackground(new java.awt.Color(158, 116, 208));
         cmdLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -49,7 +61,7 @@ public class P_Login extends javax.swing.JPanel {
         cmdRegister.setBackground(new java.awt.Color(186, 159, 231));
         cmdRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cmdRegister.setForeground(new java.awt.Color(255, 255, 255));
-        cmdRegister.setText("Register");
+        cmdRegister.setText("Go to Register");
         cmdRegister.setBorderPainted(false);
         cmdRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmdRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +115,14 @@ public class P_Login extends javax.swing.JPanel {
         
         PublicEvent.getInstance().getEventLogin().login(new Model_Login(txtUser.getText(), String.valueOf(txtPass.getPassword())));
     }//GEN-LAST:event_cmdLoginActionPerformed
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserActionPerformed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
